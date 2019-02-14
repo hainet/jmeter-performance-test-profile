@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 @SpringBootApplication
 @RestController
 public class HelloServerApplication {
@@ -14,7 +16,9 @@ public class HelloServerApplication {
     }
 
     @GetMapping("/")
-    public String hello() {
+    public String hello() throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(2000);
+
         return "Hello!";
     }
 }
