@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
@@ -17,7 +18,7 @@ public class HelloServerApplication {
 
     @GetMapping("/")
     public String hello() throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(2000);
+        TimeUnit.MILLISECONDS.sleep(new Random().nextInt(1_000) + 500);
 
         return "Hello!";
     }
